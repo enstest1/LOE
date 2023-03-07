@@ -1,0 +1,22 @@
+// Center the image on page load
+window.onload = function() {
+	var image = document.getElementById("centered-image");
+	var imageWidth = image.offsetWidth;
+	var windowWidth = window.innerWidth;
+
+	image.style.marginLeft = (windowWidth - imageWidth) / 2 + "px";
+}
+
+// Add 3D effect to banner text on mouse movement
+var bannerText = document.getElementById("banner-text");
+
+document.addEventListener("mousemove", function(event) {
+	var mouseX = event.clientX;
+	var mouseY = event.clientY;
+	var bannerX = bannerText.getBoundingClientRect().left + (bannerText.offsetWidth / 2);
+	var bannerY = bannerText.getBoundingClientRect().top + (bannerText.offsetHeight / 2);
+	var dx = mouseX - bannerX;
+	var dy = mouseY - bannerY;
+
+	bannerText.style.textShadow = dx / 20 + "px " + dy / 20 + "px 10px #888";
+});
